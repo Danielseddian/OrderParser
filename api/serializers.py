@@ -8,7 +8,7 @@ class OrderSerializer(serializers.ModelSerializer):
     price_rouble = serializers.SerializerMethodField()
 
     class Meta:
-        fields = ("own_id", "order_id", "price", "delivery_date", "price_rouble")
+        fields = ("own_id", "order_id", "price", "price_rouble", "delivery_date")
         model = Order
 
     def get_price_rouble(self, obj):
