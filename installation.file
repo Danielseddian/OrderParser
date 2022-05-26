@@ -1,0 +1,36 @@
+sudo systemctl start nginx # запустит Unit
+sudo nano 1.settings.py # откроет радактор настроек, 1. путь до settings.py
+
+# в settings необходимо указать:
+ALLOWED_HOSTS = ['xxx.xxx.xxx.xxx', 'localhost', <'ваш-домен'>, <'www.ваш-домен'>] 
+STATIC_URL = '/static/' # префикс для url
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/') # папка, в которой будет лежать статика
+python manage.py collectstatic #соберёт всю статику в указанную директорию
+sudo nano /etc/nginx/sites-enabled/default 
+
+# для кофигурационного файла nginx необходимо указать параметры
+server {
+    # следи за портом 80 на сервере с IP <ваш-ip>
+    listen 80;
+    server_name <ваш-ip> <ваш-домен> <www.ваш-домен>;
+
+    # если в адресе запроса есть аргумент '/static/' - верни файл из директории static/
+    location /static/ {
+        root /home/<имя_пользователя>/<название_проекта>/;
+    }
+        
+    # медиа файлы
+    location /media/ {
+        root /home/<имя_пользователя>/<название_проекта>/;
+    }
+        
+    # любой другой запрос передай серверу Gunicorn
+    location / {
+        include proxy_params;
+        # передавать запросы нужно на внутренний IP на порт 8000
+        proxy_pass http://127.0.0.1:8000;
+    }
+} 
+
+
+sudo nginx -s reload # перезапустит сервер
