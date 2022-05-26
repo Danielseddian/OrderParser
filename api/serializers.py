@@ -11,5 +11,5 @@ class OrderSerializer(serializers.ModelSerializer):
         fields = ("own_id", "order_id", "price", "delivery_date", "price_rouble")
         model = Order
 
-    def get_price_rouble(self):
-        return format(self.data["price"] * get_exchange(), ".2f")
+    def get_price_rouble(self, obj):
+        return format(obj.price * get_exchange(), ".2f")
