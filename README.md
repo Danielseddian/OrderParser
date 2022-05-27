@@ -28,13 +28,13 @@ python3 manage.py migrate # выполнит миграции
 ## Celery (регулярные задачи)
 ## В корневую папку добавить docker-compose.yml:
 version: "3" 
-
-  services:
-    redis:
-      image: redis
-      ports:
-        - "6379:6379"
-
+'''
+services:
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+'''
 # Запуск celery:
 > docker-compose up -d --build
 > 
