@@ -47,8 +47,7 @@ services:
 > 
 
 ## В .env в корне проекта создать .env и добавить: 
-DJANGO_SECRET=<секретный токен доступа к ресурсу>
-
+DJANGO_SECRET=<секретный токен доступа к ресурсу>  
 DEBUG=False  
 GOOGLE_ACCESS_JSON=<.json словарь в одну строку или путь до .json файла: https://habr.com/ru/post/483302/>  
 ORDERS_GOOGLE_SHEET=<id страницы для получения данных>  
