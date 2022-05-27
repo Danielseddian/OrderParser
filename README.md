@@ -5,10 +5,10 @@
 ## Установка и запуск:
 ## База данных:ф
 ### в консоли сервера:
-sudo apt install postgresql postgresql-contrib -y #установит postgresql 
-sudo -u postgres psql -c 'select now()' #проверит, что postgresql запущен и работает
-sudo service postgresql restart # перезапустит, если установлен, но не работает
-sudo -u postgres psql #запустит командную строку сервера postgresql
+>sudo apt install postgresql postgresql-contrib -y #установит postgresql  
+>sudo -u postgres psql -c 'select now()' #проверит, что postgresql запущен и работает  
+>sudo service postgresql restart # перезапустит, если установлен, но не работает  
+>sudo -u postgres psql #запустит командную строку сервера postgresql  
 ### \? # справка по командам консольного клиента psql
 ### \h # справка по доступным командам SQL
 ### \h <команда> # справка по конкретной команде
@@ -16,14 +16,14 @@ sudo -u postgres psql #запустит командную строку серв
 ### \du # список пользователей
 ### \dt # список таблиц
 ### \q # выйти 
-CREATE DATABASE some_db_name; # создаст БД <some_db_name>. название бд
-CREATE USER postgres WITH ENCRYPTED PASSWORD 'postgres'; # создаст нового пользователя c <postgres> именем и <'postgres'> паролем
-ALTER USER postgres WITH PASSWORD 'postgres'; # поменяет пароль, если требуется, для пользователя <postgres> на <'postgres'>
-GRANT ALL PRIVILEGES ON DATABASE some_db_name TO postgres; # даст все права доступа к БД <some_db_name> пользователю <postgres>
-\q # выйдет из консоли управления PostgreSQL
+>CREATE DATABASE some_db_name; # создаст БД <some_db_name>. название бд  
+>CREATE USER postgres WITH ENCRYPTED PASSWORD 'postgres'; # создаст нового пользователя c <postgres> именем и <'postgres'> паролем  
+>ALTER USER postgres WITH PASSWORD 'postgres'; # поменяет пароль, если требуется, для пользователя <postgres> на <'postgres'>  
+>GRANT ALL PRIVILEGES ON DATABASE some_db_name TO postgres; # даст все права доступа к БД <some_db_name> пользователю <postgres>  
+>\q # выйдет из консоли управления PostgreSQL  
 
-python3 manage.py makemigrations # также отдельно для каждой папки проекта, указанной в INSTALED_APPS, например, -//- some_folder для 'backend.some_folder'
-python3 manage.py migrate # выполнит миграции
+>python3 manage.py makemigrations # также отдельно для каждой папки проекта, указанной в INSTALED_APPS, например, -//- some_folder для 'backend.some_folder'  
+>python3 manage.py migrate # выполнит миграции  
 
 ## Celery (регулярные задачи)
 ## В корневую папку добавить docker-compose.yml:
