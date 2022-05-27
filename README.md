@@ -49,22 +49,13 @@ services:
 ## В .env в корне проекта создать .env и добавить: 
 DJANGO_SECRET=<секретный токен доступа к ресурсу>
 
-DEBUG=False
-
-GOOGLE_ACCESS_JSON=<.json словарь в одну строку или путь до .json файла: https://habr.com/ru/post/483302/> 
-
-ORDERS_GOOGLE_SHEET=<id страницы для получения данных>
-
-ALLOWED_HOSTS=<ip адрес или web-адрес сервера, где будет располагаться сайт>
-
-DB_ENGINE=django.db.backends.postgresql_psycopg2
-
-DB_NAME=<имя БД, которое необходимо было указать при создании>
-
-DB_USER=<имя пользователя БД, которое необходимо было указать при создании>
-
-DB_PASSWORD=<пароль пользователя БД, которое необходимо было указать при создании>
-
-DB_HOST=localhost
-
-DB_PORT=5432
+DEBUG=False  
+GOOGLE_ACCESS_JSON=<.json словарь в одну строку или путь до .json файла: https://habr.com/ru/post/483302/>  
+ORDERS_GOOGLE_SHEET=<id страницы для получения данных>  
+ALLOWED_HOSTS=<ip адрес или web-адрес сервера, где будет располагаться сайт>  
+DB_ENGINE=django.db.backends.postgresql_psycopg2  
+DB_NAME=<имя БД, которое необходимо было указать при создании>  
+DB_USER=<имя пользователя БД, которое необходимо было указать при создании>  
+DB_PASSWORD=<пароль пользователя БД, которое необходимо было указать при создании>  
+DB_HOST=localhost  
+DB_PORT=5432  
